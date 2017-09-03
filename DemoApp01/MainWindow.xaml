@@ -1,0 +1,49 @@
+﻿<Window x:Class="DemoApp01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="480" Width="640" WindowStyle="SingleBorderWindow"
+        FontSize="16" WindowState="Normal" WindowStartupLocation="CenterScreen"
+        StateChanged="Window_StateChanged" KeyDown="Window_KeyDown">
+    <Grid>
+        <DockPanel HorizontalAlignment="Stretch" Name="dockPanel1" VerticalAlignment="Stretch">
+            <StackPanel Name="stackPanel1" DockPanel.Dock="Right" Width="320"
+                        Background="{StaticResource {x:Static SystemColors.ControlBrushKey}}">
+                <TextBlock Text="調整項目" Margin="10" FontSize="24" />
+                <Separator Margin="10,0" />
+                <TextBlock Text="項目の選択にはクリックが" Margin="10" />
+                <DockPanel Margin="10,0">
+                    <TextBlock Text="必要" DockPanel.Dock="Right" />
+                    <TextBlock Text="不要" />
+                </DockPanel>
+                <Slider Margin="20,5" Minimum="0" Maximum="1" LargeChange="1" SmallChange="1"
+                        IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" TickPlacement="Both"
+                        TickFrequency="1" Value="0" Name="clickOptionSlider" />
+                <Separator Margin="10,0" />
+                <TextBlock Text="項目選択後のフェードアウト時間(秒)" Margin="10" />
+                <DockPanel Margin="10,0">
+                    <TextBlock Text="0.8" DockPanel.Dock="Right" />
+                    <TextBlock Text="0.0" DockPanel.Dock="Left" />
+                    <TextBlock Text="0.4" HorizontalAlignment="Center" />
+                </DockPanel>
+                <Slider Margin="20,5" Minimum="0" Maximum="0.8" LargeChange="0.4" SmallChange="0.1"
+                        IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" TickPlacement="Both"
+                        TickFrequency="0.1" Value="0.4" Name="fadeOutOptionSlider" />
+                <Separator Margin="10,0" />
+                <TextBlock Text="選択された項目のフェードアウト時間" Margin="10" />
+                <DockPanel Margin="5,0">
+                    <TextBlock Text="2倍" Width="40" TextAlignment="Center" DockPanel.Dock="Right" />
+                    <TextBlock Text="0.5倍" Width="40" TextAlignment="Center" DockPanel.Dock="Left" />
+                    <TextBlock Text="同じ" Width="40" TextAlignment="Center" />
+                </DockPanel>
+                <Slider Margin="20,5" Minimum="-1" Maximum="1" LargeChange="1" SmallChange="0.2"
+                        IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" TickPlacement="Both"
+                        TickFrequency="0.25" Value="0" Name="selectedItemFadeOutOptionSlider" />
+            </StackPanel>
+            <Grid ContextMenuOpening="Grid_ContextMenuOpening" Background="White">
+                <Grid.ContextMenu>
+                    <ContextMenu/>
+                </Grid.ContextMenu>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>
